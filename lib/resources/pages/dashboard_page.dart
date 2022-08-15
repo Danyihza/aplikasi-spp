@@ -69,7 +69,7 @@ class _DashboardPageState extends NyState<DashboardPage> {
                       ),
                     ),
                     Text(
-                      'SPP',
+                      'Pembayaran',
                       style: TextStyle(
                         fontWeight: FontWeight.w200,
                         fontSize: 28,

@@ -36,7 +36,11 @@ class _LoginPageState extends NyState<LoginPage> {
     String? name = prefs.getString('name');
     String? role = prefs.getString('role');
     if (name != null && role != null) {
-      Navigator.pushReplacementNamed(context, '/home');
+      if(role == 'siswa'){
+        Navigator.pushReplacementNamed(context, '/home/siswa');
+      } else {
+        Navigator.pushReplacementNamed(context, '/home');
+      }
     }
   }
 

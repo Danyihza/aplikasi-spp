@@ -92,6 +92,7 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
       _alamatController.clear();
       _notelpController.clear();
       showToast(title: 'Success', description: "Data berhasil diupdate");
+      Navigator.pop(context);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return HomePage(
           idx: 1,

@@ -94,4 +94,12 @@ class StudentController extends Controller {
     print(jsonResponse);
     return jsonResponse;
   }
+
+  dynamic deleteStudent({nisn}) async {
+    var url = Uri.parse(getEnv('API_BASE_URL') + '/student/delete/$nisn');
+    var response = await http.get(url);
+    var jsonResponse = jsonDecode(response.body);
+    print(jsonResponse);
+    return true;
+  }
 }

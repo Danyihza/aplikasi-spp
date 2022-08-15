@@ -23,12 +23,23 @@ class _StudentPageState extends NyState<StudentPage> {
     setState(() {
       listStudents = students;
     });
-    print(listStudents);
   }
 
   @override
   void dispose() {
     super.dispose();
+  }
+
+  void _deleteData(nisn) async {
+    var response = await widget.studentController.deleteStudent(nisn: nisn);
+    if (response == true) _getStudentData();
+  }
+
+  void _getStudentData() async {
+    var students = await widget.studentController.getStudents();
+    setState(() {
+      listStudents = students;
+    });
   }
 
   @override
@@ -138,7 +149,9 @@ class _StudentPageState extends NyState<StudentPage> {
           child: Row(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _deleteData(listStudents[index]['nisn']);
+                },
                 child: Row(
                   children: [
                     Icon(
