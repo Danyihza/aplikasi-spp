@@ -4,6 +4,7 @@ import 'package:flutter_app/resources/pages/home_page.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../app/controllers/controller.dart';
+import 'package:intl/intl.dart';
 
 class StudentEditPage extends NyStatefulWidget {
   final int nisn;
@@ -28,6 +29,8 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _alamatController = TextEditingController();
   TextEditingController _notelpController = TextEditingController();
+  TextEditingController _tempatController = TextEditingController();
+  TextEditingController _tanggalController = TextEditingController();
 
   @override
   init() async {
@@ -77,6 +80,8 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
         nisn: _nisnController.text,
         nis: _nisController.text,
         nama: _namaController.text,
+        tempat: _tempatController.text,
+        tanggal: _tanggalController.text,
         username: _usernameController.text,
         password: _passwordController.text,
         id_kelas: _kelas,
@@ -87,6 +92,8 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
       _nisnController.clear();
       _nisController.clear();
       _namaController.clear();
+      _tempatController.clear();
+      _tanggalController.clear();
       _usernameController.clear();
       _passwordController.clear();
       _alamatController.clear();
@@ -127,6 +134,8 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
                 _nisnController.text = data['nisn'].toString();
                 _nisController.text = data['nis'].toString();
                 _namaController.text = data['nama'].toString();
+                _tempatController.text = data['tempat'].toString();
+                _tanggalController.text = data['tanggal'].toString();
                 _usernameController.text = data['username'].toString();
                 _alamatController.text = data['alamat'].toString();
                 _notelpController.text = data['no_telp'].toString();
@@ -161,22 +170,48 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
                     ),
                     SizedBox(height: 10),
                     TextFormField(
-                      controller: _usernameController,
+                      controller: _tempatController,
                       decoration: InputDecoration(
-                        labelText: 'Username',
+                        labelText: 'Tempat lahir',
                         labelStyle: TextStyle(color: Colors.grey),
                         border: OutlineInputBorder(),
                       ),
                     ),
                     SizedBox(height: 10),
-                    TextFormField(
-                      obscureText: true,
-                      controller: _passwordController,
+                    TextField(
+                      controller:
+                          _tanggalController, //editing controller of this TextField
                       decoration: InputDecoration(
-                        labelText: 'Password',
-                        labelStyle: TextStyle(color: Colors.grey),
+                        icon: Icon(Icons.calendar_today), //icon of text field
+                        labelText: 'Tanggal Lahir', //label text of field
                         border: OutlineInputBorder(),
                       ),
+                      readOnly:
+                          true, //set it true, so that user will not able to edit text
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(
+                                2000), //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2101));
+
+                        if (pickedDate != null) {
+                          print(
+                              pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                          String formattedDate =
+                              DateFormat('yyyy-MM-dd').format(pickedDate);
+                          print(
+                              formattedDate); //formatted date output using intl package =>  2021-03-16
+                          //you can implement different kind of Date Format here according to your requirement
+
+                          setState(() {
+                            _tanggalController.text = formattedDate;
+                          });
+                        } else {
+                          print("Date is not selected");
+                        }
+                      },
                     ),
                     SizedBox(height: 10),
                     Container(
@@ -238,6 +273,25 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
                             _spp = value;
                           });
                         },
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: _usernameController,
+                      decoration: InputDecoration(
+                        labelText: 'Username',
+                        labelStyle: TextStyle(color: Colors.grey),
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      obscureText: true,
+                      controller: _passwordController,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        labelStyle: TextStyle(color: Colors.grey),
+                        border: OutlineInputBorder(),
                       ),
                     ),
                     SizedBox(height: 10),

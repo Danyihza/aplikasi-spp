@@ -36,7 +36,7 @@ class _LoginPageState extends NyState<LoginPage> {
     String? name = prefs.getString('name');
     String? role = prefs.getString('role');
     if (name != null && role != null) {
-      if(role == 'siswa'){
+      if (role == 'siswa') {
         Navigator.pushReplacementNamed(context, '/home/siswa');
       } else {
         Navigator.pushReplacementNamed(context, '/home');
@@ -94,7 +94,7 @@ class _LoginPageState extends NyState<LoginPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Let's sign you in",
+              Text("Selamat Datang",
                   textAlign: TextAlign.left,
                   style: GoogleFonts.comfortaa(
                     textStyle: TextStyle(
@@ -108,7 +108,7 @@ class _LoginPageState extends NyState<LoginPage> {
                 height: 20,
               ),
               Text(
-                "Welcome Back",
+                "Silahkan Login",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   letterSpacing: 2,
@@ -116,19 +116,6 @@ class _LoginPageState extends NyState<LoginPage> {
                   fontWeight: FontWeight.normal,
                   color: Colors.white,
                 ),
-              ),
-              Text(
-                "You've been misses",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  letterSpacing: 2,
-                  fontSize: 24,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(
-                height: 40,
               ),
               Column(
                 children: [

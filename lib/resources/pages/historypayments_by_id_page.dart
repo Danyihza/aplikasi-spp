@@ -31,7 +31,7 @@ class _HistorypaymentsByIdPageState extends NyState<HistorypaymentsByIdPage> {
           child: Column(
             children: [
               Text('Nama Santri : '),
-              Text('Nama Petugas : '),
+              Text('Nama Pengurus : '),
               Text('Bulan : '),
               Text('Tahun : '),
             ],
