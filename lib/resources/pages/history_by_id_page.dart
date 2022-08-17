@@ -70,7 +70,7 @@ class _HistoryByIdPageState extends NyState<HistoryByIdPage> {
   List<Widget> _getTitleWidget() {
     return [
       _getTitleItemWidget('Nama Siswa', 100),
-      _getTitleItemWidget('Nama Pengurus', 200),
+      _getTitleItemWidget('Nama Petugas', 200),
       _getTitleItemWidget('Bulan', 100),
       _getTitleItemWidget('Tahun', 100),
     ];

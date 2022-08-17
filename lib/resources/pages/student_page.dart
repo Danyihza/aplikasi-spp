@@ -23,6 +23,7 @@ class _StudentPageState extends NyState<StudentPage> {
     setState(() {
       listStudents = students;
     });
+    print(listStudents);
   }
 
   @override

@@ -80,26 +80,25 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
         nisn: _nisnController.text,
         nis: _nisController.text,
         nama: _namaController.text,
-        tempat: _tempatController.text,
-        tanggal: _tanggalController.text,
         username: _usernameController.text,
         password: _passwordController.text,
         id_kelas: _kelas,
         alamat: _alamatController.text,
+        tempat: _tempatController.text,
+        tanggal: _tanggalController.text,
         no_telp: _notelpController.text,
         id_spp: _spp);
     if (response['success'] == true) {
       _nisnController.clear();
       _nisController.clear();
       _namaController.clear();
-      _tempatController.clear();
-      _tanggalController.clear();
       _usernameController.clear();
       _passwordController.clear();
       _alamatController.clear();
+      _tempatController.clear();
+      _tanggalController.clear();
       _notelpController.clear();
       showToast(title: 'Success', description: "Data berhasil diupdate");
-      Navigator.pop(context);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return HomePage(
           idx: 1,
@@ -134,11 +133,11 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
                 _nisnController.text = data['nisn'].toString();
                 _nisController.text = data['nis'].toString();
                 _namaController.text = data['nama'].toString();
-                _tempatController.text = data['tempat'].toString();
-                _tanggalController.text = data['tanggal'].toString();
                 _usernameController.text = data['username'].toString();
                 _alamatController.text = data['alamat'].toString();
                 _notelpController.text = data['no_telp'].toString();
+                _tempatController.text = data['tempat'].toString();
+                _tanggalController.text = data['tanggal'].toString();
                 return Column(
                   children: [
                     TextFormField(
@@ -213,7 +212,6 @@ class _StudentEditPageState extends NyState<StudentEditPage> {
                         }
                       },
                     ),
-                    SizedBox(height: 10),
                     Container(
                       width: MediaQuery.of(context).size.width,
                       child: DropdownButtonFormField(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/controllers/student_controller.dart';
+import 'package:intl/intl.dart';
 import 'package:nylo_framework/nylo_framework.dart';
 import '../../app/controllers/controller.dart';
-import 'package:intl/intl.dart';
 
 class StudentAddPage extends NyStatefulWidget {
   final StudentController studentController = StudentController();
@@ -61,24 +61,26 @@ class _StudentAddPageState extends NyState<StudentAddPage> {
         nisn: _nisnController.text,
         nis: _nisController.text,
         nama: _namaController.text,
-        tempat: _tempatController.text,
-        tanggal: _tanggalController.text,
-        username: _usernameController.text,
-        password: _passwordController.text,
         id_kelas: _kelas,
         alamat: _alamatController.text,
         no_telp: _notelpController.text,
+        username: _usernameController.text,
+        password: _passwordController.text,
+        tempat: _tempatController.text,
+        tanggal: _tanggalController.text,
         id_spp: _spp);
+
     if (response['success'] == true) {
       _nisnController.clear();
       _nisController.clear();
       _namaController.clear();
-      _tempatController.clear();
-      _tanggalController.clear();
-      _usernameController.clear();
-      _passwordController.clear();
       _alamatController.clear();
       _notelpController.clear();
+      _usernameController.clear();
+      _passwordController.clear();
+      _tempatController.clear();
+      _tanggalController.clear();
+
       showToast(title: 'Success', description: "Data berhasil ditambahkan");
     } else {
       print(response['message']);
@@ -124,6 +126,7 @@ class _StudentAddPageState extends NyState<StudentAddPage> {
                   border: OutlineInputBorder(),
                 ),
               ),
+              SizedBox(height: 10),
               SizedBox(height: 10),
               TextFormField(
                 controller: _tempatController,

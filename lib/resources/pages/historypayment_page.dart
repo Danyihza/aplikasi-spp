@@ -81,7 +81,7 @@ class _HistorypaymentPageState extends NyState<HistorypaymentPage> {
 
   Widget _generateFirstColumnRow(BuildContext context, int index) {
     return Container(
-      child: Text(listHistoryPayments[index]['has_siswa']['nama']),
+      child: Text(listHistoryPayments[index]['has_siswa']['nisn']),
       width: 100,
       height: 52,
       padding: EdgeInsets.fromLTRB(5, 0, 0, 0),

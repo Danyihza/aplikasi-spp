@@ -36,11 +36,7 @@ class _LoginPageState extends NyState<LoginPage> {
     String? name = prefs.getString('name');
     String? role = prefs.getString('role');
     if (name != null && role != null) {
-      if (role == 'siswa') {
-        Navigator.pushReplacementNamed(context, '/home/siswa');
-      } else {
-        Navigator.pushReplacementNamed(context, '/home');
-      }
+      Navigator.pushReplacementNamed(context, '/home');
     }
   }
 
@@ -108,7 +104,7 @@ class _LoginPageState extends NyState<LoginPage> {
                 height: 20,
               ),
               Text(
-                "Silahkan Login",
+                "Silahkan Masuk",
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   letterSpacing: 2,
@@ -116,6 +112,9 @@ class _LoginPageState extends NyState<LoginPage> {
                   fontWeight: FontWeight.normal,
                   color: Colors.white,
                 ),
+              ),
+              SizedBox(
+                height: 40,
               ),
               Column(
                 children: [

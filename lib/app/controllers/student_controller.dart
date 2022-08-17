@@ -45,12 +45,12 @@ class StudentController extends Controller {
       {nisn,
       nis,
       nama,
-      tempat,
-      tanggal,
       username,
       password,
       id_kelas,
       alamat,
+      tempat,
+      tanggal,
       no_telp,
       id_spp}) async {
     var url = Uri.parse(getEnv('API_BASE_URL') + '/student/add');
@@ -58,12 +58,12 @@ class StudentController extends Controller {
       "nisn": nisn,
       "nis": nis,
       "nama": nama,
-      "tempat": tempat,
-      "tanggal": tanggal,
       "username": username,
       "password": password,
       "id_kelas": id_kelas.toString(),
       "alamat": alamat,
+      "tempat": tempat,
+      "tanggal": tanggal,
       "no_telp": no_telp,
       "id_spp": id_spp.toString()
     });
@@ -76,12 +76,12 @@ class StudentController extends Controller {
       {nisn,
       nis,
       nama,
-      tempat,
-      tanggal,
       username,
       password,
       id_kelas,
       alamat,
+      tempat,
+      tanggal,
       no_telp,
       id_spp}) async {
     var url = Uri.parse(getEnv('API_BASE_URL') + '/student/update');
@@ -89,12 +89,12 @@ class StudentController extends Controller {
       "nisn": nisn,
       "nis": nis,
       "nama": nama,
-      "tempat": tempat,
-      "tanggal": tanggal,
       "username": username,
       "password": password ?? '',
       "id_kelas": id_kelas.toString(),
       "alamat": alamat,
+      "tempat": tempat,
+      "tanggal": tanggal,
       "no_telp": no_telp,
       "id_spp": id_spp.toString()
     });
